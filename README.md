@@ -1,2 +1,2 @@
-# todo-list-app
-Angular classic example of a todo list app
+# hello-angular
+First app with Angular 2+

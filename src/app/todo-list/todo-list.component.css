@@ -1,0 +1,55 @@
+h1 {
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-weight: bold;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #dddddd;}
+
+.addButton {
+    margin: 5px;
+}
+
+input {
+    flex: 2;
+    text-align:center;
+    font-size: 14pt;
+}
+
+button {
+    background-color:rgba(0,0,0,0);
+    color: #000;
+    border-width: 0;
+    font-size: 16pt;
+}
+
+.short {
+    width: 70px;
+}
+
+.checked {
+    background-color: rgb(164, 231, 164) !important;
+}
+
+.hidden {
+    display: none;
+}
+
+.input-container {
+    display: flex;
+    width: 100%;
+}
+
+.elementButton {
+    width: 30px;
+    margin: 1px;
+}
