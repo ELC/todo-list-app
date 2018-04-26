@@ -1,5 +1,5 @@
 <h1>
-  Todo List App - <small>Built with Angular</small>
+  Todo List App<small> - Built with Angular</small>
 </h1>
 
 
@@ -8,19 +8,19 @@
   <button class="addButton" (click)="addNew()"><i class="fa fa-plus"></i></button>
 </div>
 
-<table>
+<table *ngIf="items.length !== 0">
   <tr>
-    <th class="short">ID</th>
+    <th class="short column-id">ID</th>
     <th>Activity</th>
     <th class="short"></th>
   </tr>
   <tr *ngFor="let item of items" [class.checked]='item.finished'>
-    <td>{{item.elementId}}</td>
+    <td class="column-id">{{item.elementId}}</td>
     <td>{{item.name}}</td>
-    <td>
-      <button class="elementButton" [class.hidden]='!item.finished' (click)="uncheck(item.elementId)"><i class="fa fa-minus"></i></button>
-      <button class="elementButton" [class.hidden]='item.finished' (click)="check(item.elementId)"><i class="fa fa-check"></i></button>
-      <button class="elementButton" (click)="delete(item.elementId)"><i class="fa fa-times"></i></button>
+    <td class="short">
+      <button [class.hidden]='!item.finished' (click)="uncheck(item.elementId)"><i class="fa fa-minus"></i></button>
+      <button class="check-button" [class.hidden]='item.finished' (click)="check(item.elementId)"><i class="fa fa-check"></i></button>
+      <button class="delete-button" (click)="delete(item.elementId)"><i class="fa fa-times"></i></button>
     </td>
   </tr>
 </table>

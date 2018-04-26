@@ -7,6 +7,7 @@ body {
 }
 
 footer {
+    font-size: 10pt;
     padding: 12px 0px 12px;
     text-align: center;
     position: fixed;
@@ -16,4 +17,21 @@ footer {
     text-align: center;
     background-color: #dddddd;
     font-weight: 500;
+}
+
+
+@media only screen and (max-width: 768px) {
+    body {
+        font-size: 14pt !important;
+    }
+
+    small {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    body {
+        font-size: 10pt !important;
+    }
 }
