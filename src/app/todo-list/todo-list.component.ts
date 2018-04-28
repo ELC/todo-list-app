@@ -20,20 +20,13 @@ export class TodoListComponent implements OnInit {
     return this.items.find(e => e.elementId === itemId)
   }
 
-  check(itemId){
-    let found = this.findItem(itemId)
-    if (found === undefined){
-      return
-    }
-    found.finished = true
-  }
 
-  uncheck(itemId){
+  toggle(itemId){
     let found = this.findItem(itemId)
     if (found === undefined){
       return
     }
-    found.finished = false
+    found.finished = !found.finished
   }
 
   delete(itemId){

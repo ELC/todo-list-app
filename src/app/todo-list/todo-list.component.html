@@ -18,8 +18,9 @@
     <td class="column-id">{{item.elementId}}</td>
     <td>{{item.name}}</td>
     <td class="short">
-      <button [class.hidden]='!item.finished' (click)="uncheck(item.elementId)"><i class="fa fa-minus"></i></button>
-      <button class="check-button" [class.hidden]='item.finished' (click)="check(item.elementId)"><i class="fa fa-check"></i></button>
+      <button [class.check-button]='!item.finished' (click)="toggle(item.elementId)">
+        <i class="fa" [class.fa-check]='!item.finished' [class.fa-minus]='item.finished'></i>
+      </button>
       <button class="delete-button" (click)="delete(item.elementId)"><i class="fa fa-times"></i></button>
     </td>
   </tr>
