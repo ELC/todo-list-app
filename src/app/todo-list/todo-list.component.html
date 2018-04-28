@@ -4,7 +4,7 @@
 
 
 <div class="input-container">
-  <input name="nextTask" [(ngModel)]="inputValue">
+  <input name="nextTask" (keyup.enter)="addNew()" [(ngModel)]="inputValue">
   <button class="addButton" (click)="addNew()"><i class="fa fa-plus"></i></button>
 </div>
 
