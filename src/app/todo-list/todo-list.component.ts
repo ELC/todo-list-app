@@ -8,18 +8,33 @@ import { Component, OnInit } from '@angular/core';
 export class TodoListComponent implements OnInit {
 
   constructor() { }
-  items = [];
+  items;
   currentId;
   inputValue;
+  
+  ngOnInit() { 
+    this.currentId = JSON.parse(sessionStorage.getItem('currentId'));
+    if(!this.currentId){
+      this.currentId = 0;
+    }
 
-  ngOnInit() {
-    this.currentId = 0
+    this.items = JSON.parse(sessionStorage.getItem('items'));
+    if(!this.items){
+      this.items = [];
+    }
   }
 
   findItem(itemId){
     return this.items.find(e => e.elementId === itemId)
   }
 
+  saveItems(){
+    sessionStorage.setItem('items', JSON.stringify(this.items));
+  }
+
+  saveCurrentId(){
+    sessionStorage.setItem('currentId', JSON.stringify(this.currentId));
+  }
 
   toggle(itemId){
     let found = this.findItem(itemId)
@@ -27,6 +42,7 @@ export class TodoListComponent implements OnInit {
       return
     }
     found.finished = !found.finished
+    this.saveItems();
   }
 
   delete(itemId){
@@ -35,6 +51,7 @@ export class TodoListComponent implements OnInit {
       return
     }
     this.items = this.items.filter(e => e != found)
+    this.saveItems();
   }
 
   addNew(){
@@ -46,7 +63,11 @@ export class TodoListComponent implements OnInit {
       elementId:this.currentId, 
       finished:false,
     };
+
     this.items.push(element)
     this.currentId++;
+    
+    this.saveCurrentId()
+    this.saveItems();
   }
 }
